@@ -1,0 +1,98 @@
+.org-chart-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  overflow-x: auto;
+}
+
+.myChart {
+  background-color: white;
+}
+
+/* General node styling */
+.node {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 180px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.invisible-node {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  width: auto;
+  padding: 0;
+}
+
+.node .name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.node .title {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Specific node styling */
+.commissioner-node {
+  border-left: 4px solid #3366cc;
+}
+
+.committee-node {
+  border-left: 4px solid #33cc99;
+}
+
+.director-node {
+  border-left: 4px solid #cc3366;
+}
+
+.division-node {
+  border-left: 4px solid #cc9933;
+}
+
+/* Organizational levels */
+.oc-node {
+  margin: 10px 0;
+}
+
+/* Lines */
+.oc-h-line,
+.oc-v-line {
+  border-color: #66cc99;
+}
+
+/* Hide lines for invisible nodes */
+.invisible-node + .oc-connector .oc-h-line,
+.invisible-node + .oc-connector .oc-v-line {
+  display: none;
+}
+
+/* Add space between major sections */
+[data-id="shareholders"] > .oc-node,
+[data-id="board-of-commissioners"] > .oc-node,
+[data-id="audit-committee"] > .oc-node,
+[data-id="board-of-directors"] > .oc-node {
+  margin-bottom: 30px;
+}
+
+/* Make top level nodes more prominent */
+[data-id="shareholders"] > .node,
+[data-id="board-of-commissioners"] > .node,
+[data-id="audit-committee"] > .node,
+[data-id="board-of-directors"] > .node {
+  font-weight: bold;
+  background-color: #f8f8f8;
+  border-left: 4px solid #4caf50;
+}
+
+/* Style for horizontal groupings */
+.oc-hierarchy .oc-node:not(.hidden-node) {
+  display: inline-flex;
+  margin: 0 10px;
+}
